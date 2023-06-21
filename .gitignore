@@ -1,4 +1,6 @@
 /package-lock.json
 /package.json
 .env
-node_modules
+
+# Ignore node_modules and its child directories
+node_modules/
