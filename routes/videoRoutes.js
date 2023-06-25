@@ -26,5 +26,27 @@ router.get('/:id', (req, res) => {
  
   });
 
+  router.post('/', (req, res) => {
+    
+    let sentInfo = req.body
+
+    fs.readFile(dataPath, 'utf-8', (err,data) => {
+      if (err) throw err;
+      data = JSON.parse(data)
+      let newData = JSON.stringify([sentInfo, ...data])
+      fs.writeFile(dataPath, newData, 'utf-8', (err) => {
+        if(err) {
+          console.log(err)
+        }
+      })
+      
+    })
+
+   res.send("new Data Recieved")
+
+    
+
+  })
+
 
 module.exports = router;
