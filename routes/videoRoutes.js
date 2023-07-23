@@ -3,7 +3,9 @@ const fs = require('fs');
 const router = express.Router();
  //use fs module instead
 
-const dataPath = `C:\\Users\\danm3\\bootcamp\\daniel-mcgill-brainflix-api\\data\\video-details.json`
+const dataPath = `./data/video-details.json`
+
+console.log(dataPath)
 
 router.get('/', (req, res) => {
   fs.readFile(dataPath, 'utf8', (err,data) => {
